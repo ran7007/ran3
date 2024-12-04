@@ -1,0 +1,385 @@
+@charset "utf-8";
+
+body { 
+    line-height: 1.5;
+    font-family: "Noto Sans KR", sans-serif;
+    overflow-x: hidden; /* 가로스크롤 안생기게 함 */
+}
+
+.inner {
+    width: 1600px;
+    margin: 0 auto;
+}
+
+/* header */
+@keyframes rotate {
+    0% {transform:rotate(0) ;}
+    100% {transform: rotate(360deg);}
+    
+}
+#header::after {
+    z-index: 2;
+    content: url(../images/circle_txt.png);
+    position: absolute;
+    right: -150px;
+    top: -100px;
+    animation: rotate 20s infinite linear;
+    left: calc(50% + 680px );
+}
+
+#header .inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    align-items: center;
+}
+
+#header nav {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+#header .gnb {
+    display: flex;
+}
+
+#header .gnb > li {
+    position: relative;
+}
+
+#header .gnb > li:hover > a {
+    color: #ff9e1a;
+}
+
+#header .gnb > li .depth2 {
+    z-index: 3;
+    position: absolute;
+    background: #fff;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    width: 200px;
+    padding: 20px 0;
+    left: calc(50% - 100px);
+    display: none;
+}
+
+/* #header .gnb > li:hover .depth2 {
+    display: block;
+} */
+
+
+#header .gnb > li .depth2 li a {
+    display: block;
+    padding: 5px 20px;
+    transition: all 0.5s;
+}
+
+#header .gnb > li .depth2 li a:hover {
+    background: #ff9e1a;
+    color: #fff;
+}
+
+#header .gnb > li >a {
+    display: block;
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+#header .ham {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    font-size: 0;
+    background: url(../images/ham.svg) no-repeat center center / 36px;
+    position: relative;
+    z-index: 4; /* 순서변경 */
+}
+
+/* main */
+#main h2 {
+     font-family: "DM Serif Display", serif;
+     color: #005ad5;
+     font-size: 80px;
+     font-weight: 400px;
+     text-transform: capitalize;/* 첫글자 대문자  */
+}
+
+#main h2::before {
+    content: "auntie anne's";
+    display: block;
+    font-size: 20px;
+    color: #ff9e1a;
+}
+
+#main h2 + p {
+    font-size: 20px;
+    color: #999;
+}
+
+
+/* main_banner */
+.maun_banner {
+    text-align: center;
+}
+
+/* manu */
+@keyframes swing {
+    0% ,100% {transform: rotate(-3deg);}
+    50% {transform: rotate(3deg);}
+    
+}
+
+.menu {
+    padding: 200px 0;
+    text-align: center;
+}
+
+.menu ul {
+    display: flex;
+    align-items: flex-start;
+}
+
+.menu ul li {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: relative;
+
+}
+
+.menu ul li:nth-child(2) {
+    margin-top: 100px;
+}
+
+.menu ul li::before {
+    content: url(../images/circle_dot.png);
+    position: absolute;
+    left: calc(50% - 240px);
+    top: 0;
+    transform: scale(0);
+    transition: all 0.5s;
+}
+
+.menu ul li:hover::before {
+    transform: scale(1);
+}
+
+.menu ul li dl dt {
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 30px;
+}
+
+.menu ul li dl dd {
+    font-size: 18px;
+    color: #999;
+}
+
+.menu ul li a {
+    animation: swing 2s infinite;
+}
+
+/* brand */
+.brand {
+    height: 700px;
+    overflow: hidden;
+    position: relative;
+}
+
+.brand video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.brand .brand_txt {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.brand .brand_txt a {
+    display: inline-block;
+    margin-top: 50px;
+    transition: all 0.5s;
+}
+
+.brand .brand_txt a:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* insta */
+.insta {
+    padding: 200px 0 0;
+    text-align: center;
+}
+
+.insta ul {
+    /* display: flex;
+    /* justify-content: space-between; -> 한줄 짜리는 선택해서 사용 */
+    /* gap: 50px; */
+    margin-top: 50px;
+}
+
+.insta ul li {
+    /* width: calc((100% - 150px) / 4); */
+    border-radius: 50% 50% 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.insta ul li a::before {
+    content: ""; background: rgba(0,0,0,0.8) url(../images/insta_fill.png) no-repeat center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.insta ul li:hover a::before {
+    opacity: 1;
+}
+
+.insta ul li img {
+    width: 100%;
+    display: block;
+}
+
+/* news */
+
+.news {
+    background: #eaf4ff;
+    padding: 200px 0; 
+}
+
+.news .inner {
+    display: flex;
+    gap: 50px;
+}
+
+.news .inner .news_tile {
+    width: 400px;
+}
+
+.news .event {
+    width: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.news .event img {
+    width: 100%;
+    display: block;
+}
+
+.news .event span {
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    padding: 30px;
+    font-size: 20px;
+    bottom: -200px;
+    transition: all 0.5s;
+}
+
+.news .event:hover span {
+    bottom: 0;
+}
+
+.news .notice {
+    width: 600px;
+}
+
+.new .rotate_dot {
+    left: -100px;
+    bottom: -100px;
+    width: 483px;
+    height: 483px;
+    position: absolute;
+    background: url(../images/circle_dot.png);
+    animation: swing 20s linear  infinite;
+
+}
+
+.news .notice li {
+    border-top: solid 1px #ccc;
+    padding: 50px 0;
+    font-size: 20px;
+    position: relative;
+}
+
+.news .notice li dl dd {
+    color: #999;
+    padding-top: 10px;
+}
+
+.news .notice a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: right;
+    opacity: 0;
+    transition: all 0.5s;
+    left: -50px;
+}
+
+.news .notice li:hover a {
+    opacity: 1;
+    left: 50px;
+}
+
+.news .notice img { height: 100%;}
+
+
+.news .news_tile h2 {
+    line-height: 1.2;
+}
+
+
+/* footer */
+
+.footer {
+    text-align: center;
+    background: #005ad5;
+    padding: 80px 0 0 0;
+    color: #fff;
+}
+
+.footer ul {
+    display: flex;
+    gap: 30px;
+    justify-content: center; 
+    padding: 0;
+    margin: 0 auto;
+    width: auto;
+    padding: 30px 0 20px;
+}
+
+.footer address {
+    font-size: 14px;
+    opacity: 50%;
+    padding-bottom: 80px;
+}
+
+.footer .copy {
+    background: #ff9e1a;
+    padding: 25px 0;
+    font-size: 14px;
+}
+
+
+
